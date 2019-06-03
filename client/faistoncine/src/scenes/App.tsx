@@ -8,6 +8,7 @@ import './App.css';
 
 /**
  * The provider component makes the Redux store available to the entire appllication (sub-components)
+ * The persist gate component retrieved the persist gate if exists and saves it to our Global State
  * @returns {any}
  * @constructor
  */
