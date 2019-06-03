@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class InputLabelCommonsComponent extends Component{
+export default class InputLabel extends Component{
   render() {
     return (
       <div>

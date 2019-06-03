@@ -1,1 +1,1 @@
-export * from './InputLabel/InputLabel.commons-component'
+export * from './InputLabel/InputLabel.cc'

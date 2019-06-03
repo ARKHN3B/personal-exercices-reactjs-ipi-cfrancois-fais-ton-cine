@@ -9,9 +9,13 @@
     "@types/react-dom": "16.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "latest",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.1",
-    "react-router-dom": "latest"
+    "redux": "latest",
+    "redux-persist": "latest",
+    "redux-thunk": "latest",
+    "typescript": "3.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.0.9",
     "@types/react-router-dom": "^4.3.3"
   }
 }
