@@ -1,2 +1,2 @@
 export * from './InputLabel/InputLabel.cc'
-export * from './InputLabel/InputLabel.props-enums'
+export * from './InputLabel/InputLabelProps.enums'
