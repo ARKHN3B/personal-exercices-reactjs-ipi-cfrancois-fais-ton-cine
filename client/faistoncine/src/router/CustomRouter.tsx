@@ -11,13 +11,12 @@ class CustomRouter extends Component {
       <Router>
         <div>
           <Switch>
+            <Redirect exact from={"/"} to={"/home"}/>
             <Route path={"/home"} render={ () => <Home/> }/>
             <Route path={"/signin"} render={ () => <Signin/> }/>
             <Route path={"/signup"} render={ () => <Signup/> }/>
-            <Redirect exact from={"/"} to={"/home"}/>
           </Switch>
         </div>
-
       </Router>
     );
   }

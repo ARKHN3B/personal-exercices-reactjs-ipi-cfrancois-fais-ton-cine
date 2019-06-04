@@ -5,5 +5,6 @@ export enum LabelDir {
 
 export enum InputTypes {
   Text = "text",
-  Email = "email"
+  Email = "email",
+  Password = "password"
 }

@@ -18,7 +18,7 @@ export class Signin extends Component {
     return (
       <div>
         <h3>Hello Signin</h3>
-        <InputLabel showLabel={this.state.show} labelName={'E-mail'} inputType={InputTypes.Email} inputName={InputTypes.Email}/>
+        {/*<InputLabel showLabel={this.state.show} labelName={'E-mail'} inputType={InputTypes.Email} inputName={InputTypes.Email}/>*/}
         <button onClick={ () => { this.setState({show: !this.state.show}) } }>Click</button>
       </div>
     )

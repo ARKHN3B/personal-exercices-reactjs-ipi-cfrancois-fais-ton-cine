@@ -1,16 +1,26 @@
 import React, { Component }     from 'react'
 import { InputTypes, LabelDir } from './InputLabelProps.enums';
+/** Import styles */
+import "./InputLabel.cc.css"
+/** Material components */
+import { TextField }            from '@material-ui/core';
+import makeStyles               from '@material-ui/core/styles/makeStyles';
 
 /**
  * Props interface for our component
  */
 export interface InputLabelPropsInterface {
-  showLabel?: boolean,
   labelDir?: LabelDir,
   labelName?: string,
   inputType: InputTypes,
   inputName: string,
-  inputCustomId?: string
+  inputCustomId?: string,
+  handleEventInputChange: any
+}
+
+export interface InputLabelObjectToChange {
+  name: string,
+  value: any
 }
 
 /**
@@ -43,8 +53,8 @@ export class InputLabel extends Component<InputLabelPropsInterface> {
    * @private
    */
   private _binder(): void {
-    this._showLabel        = this._showLabel.bind(this)
     this._setRandomInputId = this._setRandomInputId.bind(this)
+    this._handleChange      = this._handleChange.bind(this)
   }
 
   /**
@@ -68,22 +78,15 @@ export class InputLabel extends Component<InputLabelPropsInterface> {
 
     return inputId
   }
+  
+  private _handleChange({ target: t }: any): void {
+    const { name, value } = t
 
-  /**
-   * Display the label tag if the user needs it
-   * @returns {any}
-   * @private
-   */
-  private _showLabel(): any {
-    const { showLabel, labelName } = this.props
-    const { inputId } = this.state
-
-    if (showLabel)
-      return (
-        <label htmlFor={ inputId ? inputId : this._setRandomInputId()  }>
-          { labelName ? labelName : 'Default' } :
-        </label>
-      )
+    const object: InputLabelObjectToChange = {
+      name,
+      value
+    }
+    this.props.handleEventInputChange(object)
   }
 
   /**
@@ -91,13 +94,29 @@ export class InputLabel extends Component<InputLabelPropsInterface> {
    * @returns {React.ReactNode}
    */
   render(): React.ReactNode {
-    const { inputType } = this.props
+    const { inputType, inputName, labelName } = this.props
     const { inputId } = this.state
 
+    const useStyles = makeStyles(theme => ({
+      textField: {
+        width: 100
+      }
+    }))
+
+    const classes = useStyles()
+
     return (
-      <div>
-        { this._showLabel() }
-        <input type={inputType} id={ inputId ? inputId : this._setRandomInputId() }/>
+      <div className={"input-label-cc-container"}>
+        <TextField
+          id={ inputId ? inputId : this._setRandomInputId() }
+          className={ classes.textField }
+          name={ inputName }
+          type={ inputType }
+          label={ labelName }
+          onChange={ this._handleChange }
+          margin="normal"
+          variant="outlined"
+        />
       </div>
     )
   }
