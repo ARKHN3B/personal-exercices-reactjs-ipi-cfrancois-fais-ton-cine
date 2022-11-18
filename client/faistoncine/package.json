@@ -13,7 +13,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "latest",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "redux": "latest",
     "redux-persist": "latest",
     "redux-thunk": "latest",
